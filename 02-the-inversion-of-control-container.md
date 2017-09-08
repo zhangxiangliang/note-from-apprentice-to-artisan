@@ -1,8 +1,8 @@
-## 控制反转容器
+# The IoC Container
 * 继承自 Container 类
 * 更容易管理依赖注入
 
-### 绑定接口
+## Basic Binding
 使用 IoC Container，切换接口实现只需要一行代码。
 ```
 App::bind('BillingNotifierInterface', function () {
@@ -31,7 +31,7 @@ App::bind('BillingNotifierInterface', function () {
 });
 ```
 
-### 绑定单例
+## Bind Singleton
 容器只生成一次提示器对象，接下来使用只会使用这个对象。
 ```
 App::singleton('BillingNotifierInterface', function()
@@ -46,7 +46,7 @@ $notifier = new SmsBillingNotifier;
 App::instance('BillingNotifierInterface', $notifier);
 ```
 
-## 反射解决方案
+## Reflective Resolution
 * 依靠反射来处理类和接口
 * 用反射来自动处理依赖是Laravel容器的一个最强大的特性
 * 反射是一种运行时探测类和方法的能力
